@@ -1,9 +1,89 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+describe "tests" {
+  const reyDeCopas = new torino()
+  const academia = new torino()
+  const cuervo = new economico()
+  const xeneize = new economico()
+  const millonario = new economico()
+  const combi1 =  combiAdaptable
+  const combi2 =  combiAdaptable
+   
+   method initialize(){
+    reyDeCopas.color("rojo")
+    reyDeCopas.autonomia(300)
+    reyDeCopas.velocidadMaxima(120)
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
+    academia.color("celeste")
+    academia.autonomia(250)
+    academia.velocidadMaxima(110)
+   
+   cuervo.addAdaptacion(tanqueExtra)
+   cuervo.addAdaptacion(transportadorSillaDeRuedas)
+   
+   xeneize.addAdaptacion(cañoDeEscapeSilencioso)
 
+   combi1.interior(interiorAccesible)
+   combi1.motor(motorUrbano)
+
+   combi2.interior(interiorEspacioso)
+   combi2.motor(motorDeportivo)
+   }
+   test "rey de copas esta bien armado"{
+     assert.equals("rojo", reyDeCopas.color())
+     assert.equals(300, reyDeCopas.autonomia())
+     assert.equals(120, reyDeCopas.velocidadMaxima())
+   }
+   test "academia esta bien armado"{
+     assert.equals("celeste", academia.color())
+     assert.equals(250, academia.autonomia())
+     assert.equals(110, academia.velocidadMaxima())
+     assert.equals(4, academia.capacidad())
+     assert.equals(false, academia.llevaSillaDeRuedas())
+     assert.equals(false, academia.esSilencioso())
+   }
+   test "cuervo esta bien armado"{
+     assert.equals(true, cuervo.llevaSillaDeRuedas())
+     assert.equals("beige", cuervo.color())
+     assert.equals(true, cuervo.esSilencioso())
+     assert.equals(380, cuervo.autonomia())
+     assert.equals(3, cuervo.capacidad())
+     assert.equals(80, cuervo.velocidadMaxima())
+   }
+   
+   test "millonario esta bien armado"{
+     assert.equals(false, millonario.llevaSillaDeRuedas())
+     assert.equals("beige", millonario.color())
+     assert.equals(false, millonario.esSilencioso())
+     assert.equals(200, millonario.autonomia())
+     assert.equals(5, millonario.capacidad())
+     assert.equals(120, millonario.velocidadMaxima())
+   }
+
+   test "xeneize esta bien armado"{
+      assert.equals(false, xeneize.llevaSillaDeRuedas())
+      assert.equals("beige", xeneize.color())
+      assert.equals(true, xeneize.esSilencioso())
+      assert.equals(190, xeneize.autonomia())
+      assert.equals(5, xeneize.capacidad())
+      assert.equals(115, xeneize.velocidadMaxima())
+   }
+   
+   test "combi esta bien armada"{
+      assert.equals(true, combi1.llevaSillaDeRuedas())
+      assert.equals("celeste", combi1.color())
+      assert.equals(false, combi1.esSilencioso())
+      assert.equals(1000, combi1.autonomia())
+      assert.equals(5, combi1.capacidad())
+      assert.equals(130, combi1.velocidadMaxima())
+   }
+
+   test "combi2 esta bien armada"{
+      assert.equals(false, combi2.llevaSillaDeRuedas())
+      assert.equals("celeste", combi2.color())
+      assert.equals(false, combi2.esSilencioso())
+      assert.equals(400, combi2.autonomia())
+      assert.equals(7, combi2.capacidad())
+      assert.equals(230, combi2.velocidadMaxima())
+   }
 }
